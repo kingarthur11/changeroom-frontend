@@ -5,6 +5,8 @@ import { deepOrange, deepPurple } from "@mui/material/colors";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 import { useSelector, useDispatch } from "react-redux";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 const Navbar = () => {
   const { login, isAuth } = useSelector((state) => state.auth);
@@ -20,34 +22,49 @@ const Navbar = () => {
           </div>
         </div>
         <div>
-          <ul className=" d-flex align-items-center justify-content-start">
-            <li>
-              <Badge badgeContent={4} color="primary">
-                <MailIcon style={{ color: "#ffffff", fontSize: "40px" }} />
-              </Badge>
-            </li>
-            <li>
-              <Avatar sx={{ bgcolor: deepPurple[500] }}>
-                {isAuth ? (
-                  <>{(login && login?.user?.name).charAt(0).toUpperCase()}</>
-                ) : (
-                  <></>
-                )}
-              </Avatar>
-            </li>
-            <li>
-              <div>
-                <p>Hello</p>
-                <h3>
-                  {isAuth ? (
-                    <>{(login && login?.user?.name).toUpperCase()}</>
-                  ) : (
-                    <>Team</>
-                  )}
-                </h3>
-              </div>
-            </li>
-          </ul>
+          {isAuth ? (
+            <ul className=" d-flex align-items-center justify-content-start">
+              <li>
+                <Badge badgeContent={4} color="primary">
+                  <MailIcon style={{ color: "#ffffff", fontSize: "40px" }} />
+                </Badge>
+              </li>
+              <li>
+                <Avatar sx={{ bgcolor: deepPurple[500] }}>
+                  {(login && login?.user?.name).charAt(0).toUpperCase()}
+                </Avatar>
+              </li>
+              <li>
+                <div>
+                  <p>Hello</p>
+                  <h3>{(login && login?.user?.name).toUpperCase()}</h3>
+                </div>
+              </li>
+            </ul>
+          ) : (
+            <>
+              <Stack spacing={2} direction="row">
+                <Button
+                  style={{
+                    color: "#ffffff",
+                    background: "#03045e",
+                  }}
+                  size="medium"
+                  variant="contained">
+                  Login
+                </Button>
+                <Button
+                  style={{
+                    color: " #03045e",
+                    background: "#ffffff",
+                  }}
+                  size="medium"
+                  variant="outlined">
+                  Signup
+                </Button>
+              </Stack>
+            </>
+          )}
         </div>
       </div>
     </NavWrapper>
