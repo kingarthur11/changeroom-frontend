@@ -171,7 +171,6 @@ const EditCompany = ({ handleClose, editId, getData }) => {
         headers,
       });
       const { data } = await response.data;
-      console.log(data);
       setService(data);
       return { data };
     } catch (error) {
@@ -185,7 +184,6 @@ const EditCompany = ({ handleClose, editId, getData }) => {
         headers: authHeader(token),
       });
       const { data } = await response.data;
-      console.log(data);
       setValues(data);
       return { data };
     } catch (error) {
@@ -206,7 +204,6 @@ const EditCompany = ({ handleClose, editId, getData }) => {
       console.log(success);
       getData();
       handleClose();
-      // return { data };
     } catch (error) {
       console.log(error);
       getData();
@@ -239,7 +236,6 @@ const EditCompany = ({ handleClose, editId, getData }) => {
         headers,
       });
       const { data } = await response.data;
-      console.log(data);
       setCountry(data);
       return { data };
     } catch (error) {
@@ -255,9 +251,6 @@ const EditCompany = ({ handleClose, editId, getData }) => {
   useEffect(() => {
     getCompany(editId);
   }, [editId]);
-
-  console.log("value", values);
-  // console.log(values?.service?.name);
 
   return (
     <EditWrapper>
