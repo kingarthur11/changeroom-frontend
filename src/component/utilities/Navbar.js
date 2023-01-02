@@ -7,15 +7,16 @@ import MailIcon from "@mui/icons-material/Mail";
 import { useSelector, useDispatch } from "react-redux";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ callback }) => {
   const { login, isAuth } = useSelector((state) => state.auth);
 
   return (
     <NavWrapper>
       <div className="d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center justify-content-between">
-          <i className="fa-solid fa-bars harmbuga"></i>
+          <i onClick={callback} className="fa-solid fa-bars harmbuga"></i>
           <div>
             <h3>Change</h3>
             <h3>Maker</h3>
@@ -44,24 +45,29 @@ const Navbar = () => {
           ) : (
             <>
               <Stack spacing={2} direction="row">
-                <Button
-                  style={{
-                    color: "#ffffff",
-                    background: "#03045e",
-                  }}
-                  size="medium"
-                  variant="contained">
-                  Login
-                </Button>
-                <Button
-                  style={{
-                    color: " #03045e",
-                    background: "#ffffff",
-                  }}
-                  size="medium"
-                  variant="outlined">
-                  Signup
-                </Button>
+                <Link className="nav_link" to="/login">
+                  <Button
+                    style={{
+                      color: "#ffffff",
+                      background: "#03045e",
+                    }}
+                    size="medium"
+                    variant="contained">
+                    Login
+                  </Button>
+                </Link>
+
+                <Link className="nav_link" to="/signup">
+                  <Button
+                    style={{
+                      color: " #03045e",
+                      background: "#ffffff",
+                    }}
+                    size="medium"
+                    variant="outlined">
+                    Signup
+                  </Button>
+                </Link>
               </Stack>
             </>
           )}
@@ -85,12 +91,14 @@ const NavWrapper = styled.div`
     font-size: 40px;
     padding-right: 20px;
   }
-  @media (min-width: 1000px) {
+  @media (min-width: 1200px) {
     .harmbuga {
       display: none;
     }
   }
-
+  .nav_link {
+    text-decoration: none;
+  }
   h3,
   p {
     color: #ffffff;

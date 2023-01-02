@@ -3,6 +3,7 @@ import PageRoutes from "./ApiRoute";
 import { useSelector, useDispatch } from "react-redux";
 import { RefreshUser } from "./redux/actions/authActions";
 import Spinner from "./component/common/loading";
+import Hamburger from "./Hamburger";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="">
+      {/* <Hamburger /> */}
       {isAuth !== null ? (
         <PageRoutes isAuth={isAuth} />
       ) : (

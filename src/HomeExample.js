@@ -12,11 +12,7 @@ import { dateFormatter } from "./utilities/dateFormater";
 
 const Home = () => {
   const [show, setShow] = useState(false);
-
-  const callback = () => {
-    setShow(!show);
-    console.log(show);
-  };
+  const [isToggled, toggle] = useState(false);
 
   const [formData, setFormData] = useState([]);
 
@@ -34,13 +30,18 @@ const Home = () => {
     }
   };
 
+  const callback = () => {
+    toggle(!isToggled);
+    console.log(isToggled);
+  };
+
   useEffect(() => {
     getData();
   }, []);
 
   return (
     <Wrapper>
-      <Sidebar show={show} />
+      <Sidebar />
       <MainWrapper>
         <div>
           <Navbar callback={callback} />
@@ -51,7 +52,7 @@ const Home = () => {
             <div></div>
           </div>
           <hr className="mb-4" />
-          {/* <div className="px-5 table-content position-relative">
+          <div className="px-5 table-content position-relative">
             <div className="style-round">
               <table className="table">
                 <thead>
@@ -78,7 +79,7 @@ const Home = () => {
                 </tbody>
               </table>
             </div>
-          </div> */}
+          </div>
         </BodyWrapper>
       </MainWrapper>
     </Wrapper>
@@ -96,7 +97,7 @@ const Wrapper = styled.div`
 
 const MainWrapper = styled.div`
   width: 100%;
-  @media (max-width: 1200px) {
+  @media (max-width: 1000px) {
     width: 100%;
   }
 `;
