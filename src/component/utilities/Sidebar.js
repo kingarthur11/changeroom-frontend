@@ -56,7 +56,10 @@ export default Sidebar;
 
 const SidebarWrapper = styled.div`
   background: #ffffff;
-  width: 15%;
+  width: 20%;
+  @media (max-width: 1000px) {
+    display: none;
+  }
   .nav_link {
     text-decoration: none;
   }

@@ -10,23 +10,23 @@ export const registerUser = (dataObj, navigate) => async (dispatch) => {
   });
   const { formData, message } = await register(dataObj);
   console.log(formData);
-  // if (formData) {
-  //   dispatch({
-  //     type: types.REGISTER_USER,
-  //     payload: formData,
-  //     success: true,
-  //   });
-  //   navigate("/login", { state: "success_signup" });
-  // }
-  // if (message) {
-  //   dispatch({
-  //     type: types.AUTHORIZE_FAIL,
-  //     payload: message,
-  //   });
-  //   toast.error(message, {
-  //     position: "top-right",
-  //   });
-  // }
+  if (formData) {
+    dispatch({
+      type: types.REGISTER_USER,
+      payload: formData,
+      success: true,
+    });
+    navigate("/login");
+  }
+  if (message) {
+    dispatch({
+      type: types.AUTHORIZE_FAIL,
+      payload: message,
+    });
+    toast.error(message, {
+      position: "top-right",
+    });
+  }
 };
 
 export const loginUser = (dataObj, navigate) => async (dispatch) => {

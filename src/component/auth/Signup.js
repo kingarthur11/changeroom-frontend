@@ -61,7 +61,7 @@ const Signup = () => {
         </h3>
       </LeftWrapper>
       <RightWrapper>
-        <div className=" ">
+        <div className="signup-content">
           <div>
             <h3>Signup</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -240,7 +240,19 @@ const Wrapper = styled.div`
 const RightWrapper = styled.div`
   width: 50%;
   background: #ffffff;
-  padding: 50px 150px;
+  padding: 50px 100px;
+
+  @media (max-width: 996px) {
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    padding: 50px 50px;
+  }
+
+  .signup-content {
+    width: 100%;
+  }
 
   input {
     color: #000000;
@@ -287,5 +299,8 @@ const LeftWrapper = styled.div`
     color: #ffffff;
     font-size: 45px;
     line-height: 60px;
+  }
+  @media (max-width: 996px) {
+    display: none;
   }
 `;

@@ -12,9 +12,12 @@ const Navbar = () => {
   return (
     <NavWrapper>
       <div className="d-flex align-items-center justify-content-between">
-        <div>
-          <h3>Change</h3>
-          <h3>Maker</h3>
+        <div className="d-flex align-items-center justify-content-between">
+          <i className="fa-solid fa-bars harmbuga"></i>
+          <div>
+            <h3>Change</h3>
+            <h3>Maker</h3>
+          </div>
         </div>
         <div>
           <ul className=" d-flex align-items-center justify-content-start">
@@ -60,6 +63,17 @@ const NavWrapper = styled.div`
   z-index: 10;
   top: 0;
   left: 0;
+  .harmbuga {
+    color: #ffffff;
+    font-size: 40px;
+    padding-right: 20px;
+  }
+  @media (min-width: 1000px) {
+    .harmbuga {
+      display: none;
+    }
+  }
+
   h3,
   p {
     color: #ffffff;

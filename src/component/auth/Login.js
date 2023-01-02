@@ -35,7 +35,7 @@ const Login = () => {
         </h3>
       </LeftWrapper>
       <RightWrapper>
-        <div className="form-side ">
+        <div className="">
           <div>
             <h3>Login</h3>
             <div className="mt-4">
@@ -82,7 +82,7 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div className="text-center">
+                <div className="text-center pt-5">
                   <button type="submit" className="login-btn">
                     Login
                   </button>
@@ -113,9 +113,15 @@ const Wrapper = styled.div`
 const RightWrapper = styled.div`
   width: 50%;
   background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 50px 150px;
+
+  @media (max-width: 996px) {
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    padding: 50px 50px;
+  }
 
   input {
     color: #000000;
@@ -162,5 +168,8 @@ const LeftWrapper = styled.div`
     color: #ffffff;
     font-size: 45px;
     line-height: 60px;
+  }
+  @media (max-width: 996px) {
+    display: none;
   }
 `;

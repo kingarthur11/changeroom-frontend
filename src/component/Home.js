@@ -39,7 +39,9 @@ const Home = () => {
     <Wrapper>
       <Sidebar />
       <MainWrapper>
-        <Navbar />
+        <div>
+          <Navbar />
+        </div>
         <BodyWrapper>
           <div className="py-4 d-flex align-items-center justify-content-between px-5">
             <input placeholder="search company" />
@@ -90,7 +92,10 @@ const Wrapper = styled.div`
 `;
 
 const MainWrapper = styled.div`
-  width: 85%;
+  width: 80%;
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 const BodyWrapper = styled.div`

@@ -82,7 +82,7 @@ const ListCompany = () => {
                       <div className="company-card">
                         <div className="d-flex align-items-center justify-content-between">
                           <div>
-                            <h5>{content?.company_name}</h5>
+                            <h5>{(content?.company_name).toUpperCase()}</h5>
                             <p>{content?.company_email}</p>
                           </div>
                           <Stack spacing={2} direction="row">
@@ -114,7 +114,7 @@ const ListCompany = () => {
                             <p>{content?.country?.name}</p>
                           </div>
                           <div>
-                            <h5>Country</h5>
+                            <h5>Service</h5>
                             <p>{content?.service?.name}</p>
                           </div>
                         </div>
@@ -139,6 +139,7 @@ const ListCompany = () => {
         <ModalComponent
           show={addShow}
           size={"lg"}
+          getData={getData}
           handleClose={() => setAddShow(false)}>
           <AddCompany show={addShow} handleClose={() => setAddShow(false)} />
         </ModalComponent>
@@ -153,12 +154,6 @@ const EditCompany = ({ handleClose, editId, getData }) => {
   const { token } = JSON.parse(localStorage.getItem("token"));
   const [service, setService] = useState([]);
   const [country, setCountry] = useState([]);
-  // const [defaultSelect, setDefaultSelet] = useState({
-  //   company: "",
-  //   service: "",
-  //   service_id: "",
-  //   country_id: "",
-  // });
   const [values, setValues] = useState({
     company_name: "",
     company_email: "",
@@ -432,8 +427,6 @@ const AddCompany = ({ handleClose, getData }) => {
       console.log(success);
       getData();
       handleClose();
-
-      // return { data };
     } catch (error) {
       console.log(error);
       getData();
