@@ -7,6 +7,7 @@ import { registerUser } from "../../redux/actions/authActions";
 import { config } from "../../redux/config";
 import axios from "axios";
 import { headers } from "../../redux/headers";
+import Button from "@mui/material/Button";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -63,7 +64,21 @@ const Signup = () => {
       <RightWrapper>
         <div className="signup-content">
           <div>
-            <h3>Signup</h3>
+            <div className="d-flex align-items-center justify-content-between">
+              <h3>Signup</h3>
+              <Link className="nav_link" to="/">
+                <Button
+                  style={{
+                    color: "#ffffff",
+                    background: "#03045e",
+                  }}
+                  size="medium"
+                  variant="contained">
+                  Home
+                </Button>
+              </Link>
+            </div>
+
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="pt-3">
                 <div className="row">
@@ -249,7 +264,9 @@ const RightWrapper = styled.div`
   @media (max-width: 600px) {
     padding: 50px 50px;
   }
-
+  .nav_link {
+    text-decoration: none;
+  }
   .signup-content {
     width: 100%;
   }

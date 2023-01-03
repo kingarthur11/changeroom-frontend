@@ -8,6 +8,7 @@ import ModalComponent from "./utilities/modal";
 import { config } from "../redux/config";
 import axios from "axios";
 import { headers } from "../redux/headers";
+
 import { dateFormatter } from "./utilities/dateFormater";
 
 const Home = () => {
@@ -51,34 +52,35 @@ const Home = () => {
             <div></div>
           </div>
           <hr className="mb-4" />
-          {/* <div className="px-5 table-content position-relative">
-            <div className="style-round">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Date created</th>
-                    <th scope="col">Company Name</th>
-                    <th scope="col">Company Email</th>
-                    <th scope="col">Service</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {formData &&
-                    formData.map((item) => {
-                      // console.log(item.service.name);
-                      return (
-                        <tr key={item.id}>
-                          <td>{dateFormatter(item?.created_at)}</td>
-                          <td>{item?.company_name}</td>
-                          <td>{item?.company_email}</td>
-                          <td>{item?.service.name}</td>
-                        </tr>
-                      );
-                    })}
-                </tbody>
-              </table>
+          <div className="style-table">
+            <div className="px-5 table-content position-relative">
+              <div className="style-round">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date created</th>
+                      <th scope="col">Company Name</th>
+                      <th scope="col">Company Email</th>
+                      <th scope="col">Service</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {formData &&
+                      formData.map((item) => {
+                        return (
+                          <tr key={item.id}>
+                            <td>{dateFormatter(item?.created_at)}</td>
+                            <td>{item?.company_name}</td>
+                            <td>{item?.company_email}</td>
+                            <td>{item?.service.name}</td>
+                          </tr>
+                        );
+                      })}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div> */}
+          </div>
         </BodyWrapper>
       </MainWrapper>
     </Wrapper>
@@ -103,6 +105,11 @@ const MainWrapper = styled.div`
 
 const BodyWrapper = styled.div`
   background: #f8f9fa;
+  .style-table {
+    /* max-width: 100%; */
+    overflow-x: auto;
+  }
+  /* min-width: 800px; */
 
   button {
     background: #03045e;

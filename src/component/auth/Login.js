@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { loginUser } from "../../redux/actions/authActions";
+import Button from "@mui/material/Button";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,22 @@ const Login = () => {
       <RightWrapper>
         <div className="">
           <div>
-            <h3>Login</h3>
+            <div className="d-flex align-items-center justify-content-between">
+              <h3>Login</h3>
+              <Link className="nav_link" to="/">
+                {" "}
+                <Button
+                  style={{
+                    color: "#ffffff",
+                    background: "#03045e",
+                  }}
+                  size="medium"
+                  variant="contained">
+                  Home
+                </Button>
+              </Link>
+            </div>
+
             <div className="mt-4">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="my-3">
@@ -122,7 +138,9 @@ const RightWrapper = styled.div`
   @media (max-width: 600px) {
     padding: 50px 50px;
   }
-
+  .nav_link {
+    text-decoration: none;
+  }
   input {
     color: #000000;
   }
