@@ -12,7 +12,9 @@ import axios from "axios";
 const Profile = () => {
   const dispatch = useDispatch();
   const token = JSON.parse(localStorage.getItem("token"));
-  // console.log(token);
+
+  const { isLoading } = useSelector((state) => state.auth);
+
   const [country, setCountry] = useState([]);
   const [values, setValues] = useState({
     name: "",
@@ -147,17 +149,31 @@ const Profile = () => {
                 </select>
               </div>
             </div>
-            <Button
-              type="submit"
-              style={{
-                color: "#ffffff",
-                background: "#03045e",
-                marginTop: "30px",
-              }}
-              size="medium"
-              variant="contained">
-              Save
-            </Button>
+            {isLoading ? (
+              <Button
+                type="submit"
+                style={{
+                  color: "#ffffff",
+                  background: "#205295",
+                  marginTop: "30px",
+                }}
+                size="medium"
+                variant="contained">
+                Loading...
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                style={{
+                  color: "#ffffff",
+                  background: "#03045e",
+                  marginTop: "30px",
+                }}
+                size="medium"
+                variant="contained">
+                Save
+              </Button>
+            )}
           </form>
         </div>
       </div>

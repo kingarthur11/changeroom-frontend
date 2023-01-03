@@ -154,6 +154,7 @@ const EditCompany = ({ handleClose, editId, getData }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const [service, setService] = useState([]);
   const [country, setCountry] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [values, setValues] = useState({
     company_name: "",
     company_email: "",
@@ -188,6 +189,7 @@ const EditCompany = ({ handleClose, editId, getData }) => {
 
   const editData = async (data) => {
     try {
+      setLoading(true);
       const response = await axios.put(
         `${config.changemaker}companies/${editId}`,
         data,
@@ -197,10 +199,12 @@ const EditCompany = ({ handleClose, editId, getData }) => {
       );
       const success = await response.data;
       console.log(success);
+      setLoading(false);
       getData();
       handleClose();
     } catch (error) {
       console.log(error);
+      setLoading(false);
       getData();
       handleClose();
     }
@@ -361,13 +365,23 @@ const EditCompany = ({ handleClose, editId, getData }) => {
           </div>
         </div>
         <Stack style={{ paddingTop: "50px" }} spacing={4} direction="row">
-          <Button
-            type="submit"
-            style={{ color: "#ffffff", background: "#03045e" }}
-            size="medium"
-            variant="contained">
-            Save
-          </Button>
+          {loading ? (
+            <Button
+              type="submit"
+              style={{ color: "#ffffff", background: "#205295" }}
+              size="medium"
+              variant="contained">
+              Loading...
+            </Button>
+          ) : (
+            <Button
+              type="submit"
+              style={{ color: "#ffffff", background: "#03045e" }}
+              size="medium"
+              variant="contained">
+              Save
+            </Button>
+          )}
           <Button onClick={handleClose} size="medium" variant="outlined">
             Cancel
           </Button>
@@ -381,6 +395,7 @@ const AddCompany = ({ handleClose, getData }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const [service, setService] = useState([]);
   const [country, setCountry] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [values, setValues] = useState({
     company_name: "",
     company_email: "",
@@ -415,6 +430,7 @@ const AddCompany = ({ handleClose, getData }) => {
   };
 
   const addData = async (data) => {
+    setLoading(true);
     try {
       const response = await axios.post(
         `${config.changemaker}companies`,
@@ -424,11 +440,11 @@ const AddCompany = ({ handleClose, getData }) => {
         }
       );
       const success = await response.data;
-      console.log(success);
+      setLoading(false);
       getData();
       handleClose();
     } catch (error) {
-      console.log(error);
+      setLoading(false);
       getData();
       handleClose();
     }
@@ -565,13 +581,23 @@ const AddCompany = ({ handleClose, getData }) => {
           </div>
         </div>
         <Stack style={{ paddingTop: "50px" }} spacing={4} direction="row">
-          <Button
-            type="submit"
-            style={{ color: "#ffffff", background: "#03045e" }}
-            size="medium"
-            variant="contained">
-            Save
-          </Button>
+          {loading ? (
+            <Button
+              type="submit"
+              style={{ color: "#ffffff", background: "#205295" }}
+              size="medium"
+              variant="contained">
+              Loading...
+            </Button>
+          ) : (
+            <Button
+              type="submit"
+              style={{ color: "#ffffff", background: "#03045e" }}
+              size="medium"
+              variant="contained">
+              Save
+            </Button>
+          )}
           <Button onClick={handleClose} size="medium" variant="outlined">
             Cancel
           </Button>

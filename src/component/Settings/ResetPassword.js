@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 
 const ResetPassword = () => {
   const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.auth);
   const token = JSON.parse(localStorage.getItem("token"));
   const [values, setValues] = useState({
     old_password: "",
@@ -25,7 +26,6 @@ const ResetPassword = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(resetPassword(token, data));
     refresh();
   };
@@ -86,17 +86,31 @@ const ResetPassword = () => {
                 />
               </div>
             </div>
-            <Button
-              type="submit"
-              style={{
-                color: "#ffffff",
-                background: "#03045e",
-                marginTop: "30px",
-              }}
-              size="medium"
-              variant="contained">
-              Save
-            </Button>
+            {isLoading ? (
+              <Button
+                type="submit"
+                style={{
+                  color: "#ffffff",
+                  background: "#205295",
+                  marginTop: "30px",
+                }}
+                size="medium"
+                variant="contained">
+                Loading...
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                style={{
+                  color: "#ffffff",
+                  background: "#03045e",
+                  marginTop: "30px",
+                }}
+                size="medium"
+                variant="contained">
+                Save
+              </Button>
+            )}
           </form>
         </div>
       </div>
