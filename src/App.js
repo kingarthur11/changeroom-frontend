@@ -15,7 +15,6 @@ function App() {
 
   return (
     <div className="">
-      {/* <Hamburger /> */}
       {isAuth !== null ? (
         <PageRoutes isAuth={isAuth} />
       ) : (

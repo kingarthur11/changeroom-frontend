@@ -38,6 +38,7 @@ const authReducer = (state = initialState, action) => {
         isLoggedIn: action.success,
       };
     case types.UPDATE_PROFILE:
+      // console.log(action.payload);
       return {
         ...state,
         isLoading: false,

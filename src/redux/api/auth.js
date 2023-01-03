@@ -71,6 +71,7 @@ export const update_profile = async (token, obj) => {
       headers: authHeader(token),
     });
     const { data } = await response.data;
+    // console.log(data);
     return { data };
   } catch (error) {
     const message = error.response

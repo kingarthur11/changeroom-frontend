@@ -12,6 +12,9 @@ import Button from "@mui/material/Button";
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { isLoading } = useSelector((state) => state.auth);
+
   const [formData, setFormData] = useState([]);
   const [values, setValues] = useState({
     email: "",
@@ -227,7 +230,31 @@ const Signup = () => {
                   </div>
                 </div>
                 <div className="text-center pt-4">
-                  <button className="login-btn">Signup</button>
+                  {isLoading ? (
+                    <Button
+                      type="submit"
+                      style={{
+                        color: "#ffffff",
+                        background: "#205295",
+                        marginTop: "30px",
+                      }}
+                      size="medium"
+                      variant="contained">
+                      Loading...
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      style={{
+                        color: "#ffffff",
+                        background: "#03045e",
+                        marginTop: "30px",
+                      }}
+                      size="medium"
+                      variant="contained">
+                      Signup
+                    </Button>
+                  )}
                   <p className="text-center pt-3">
                     Already have an account?{" "}
                     <span className="">

@@ -12,7 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = ({ callback }) => {
   const { login, isAuth } = useSelector((state) => state.auth);
 
-  // console.log(login);
+  console.log(login);
 
   return (
     <NavWrapper>
@@ -34,13 +34,13 @@ const Navbar = ({ callback }) => {
               </li>
               <li>
                 <Avatar sx={{ bgcolor: deepPurple[500] }}>
-                  {/* {(login && login?.name).charAt(0).toUpperCase()} */}
+                  {(login && login?.name).charAt(0).toUpperCase()}
                 </Avatar>
               </li>
               <li>
                 <div>
                   <p>Hello</p>
-                  {/* <h3>{(login && login?.name).toUpperCase()}</h3> */}
+                  <h3>{(login && login?.name).toUpperCase()}</h3>
                 </div>
               </li>
             </ul>

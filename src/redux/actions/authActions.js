@@ -74,7 +74,7 @@ export const logOut = (navigate) => async (dispatch) => {
 };
 
 export const RefreshUser = () => async (dispatch) => {
-  const data = JSON.parse(localStorage.getItem("token"));
+  const data = JSON.parse(localStorage.getItem("user"));
   dispatch({
     type: types.LOADING,
     payload: true,
@@ -115,6 +115,7 @@ export const updateProfile = (token, dataObj) => async (dispatch) => {
   });
   const { data, message } = await update_profile(token, dataObj);
   if (data) {
+    // console.log(data);
     dispatch({ type: types.UPDATE_PROFILE, payload: data, success: true });
   } else {
     // dispatch({
