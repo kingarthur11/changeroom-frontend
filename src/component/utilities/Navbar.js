@@ -12,6 +12,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = ({ callback }) => {
   const { login, isAuth } = useSelector((state) => state.auth);
 
+  // console.log(login);
+
   return (
     <NavWrapper>
       <div className="d-flex align-items-center justify-content-between">
@@ -32,13 +34,13 @@ const Navbar = ({ callback }) => {
               </li>
               <li>
                 <Avatar sx={{ bgcolor: deepPurple[500] }}>
-                  {(login && login?.user?.name).charAt(0).toUpperCase()}
+                  {/* {(login && login?.name).charAt(0).toUpperCase()} */}
                 </Avatar>
               </li>
               <li>
                 <div>
                   <p>Hello</p>
-                  <h3>{(login && login?.user?.name).toUpperCase()}</h3>
+                  {/* <h3>{(login && login?.name).toUpperCase()}</h3> */}
                 </div>
               </li>
             </ul>

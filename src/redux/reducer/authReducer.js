@@ -37,7 +37,17 @@ const authReducer = (state = initialState, action) => {
         login: action.payload,
         isLoggedIn: action.success,
       };
-
+    case types.UPDATE_PROFILE:
+      return {
+        ...state,
+        isLoading: false,
+        login: action.payload,
+      };
+    case types.RESET_PASSWORD:
+      return {
+        ...state,
+        isLoading: false,
+      };
     case types.CLEAR_USERS:
       return {
         ...state,

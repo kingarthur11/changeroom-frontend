@@ -16,7 +16,7 @@ const ListCompany = () => {
   const [editShow, setEditShow] = useState(false);
   const [addShow, setAddShow] = useState(false);
   const [editId, setEditId] = useState(null);
-  const { token } = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem("token"));
 
   const [formData, setFormData] = useState([]);
 
@@ -151,7 +151,7 @@ const ListCompany = () => {
 export default ListCompany;
 
 const EditCompany = ({ handleClose, editId, getData }) => {
-  const { token } = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem("token"));
   const [service, setService] = useState([]);
   const [country, setCountry] = useState([]);
   const [values, setValues] = useState({
@@ -378,7 +378,7 @@ const EditCompany = ({ handleClose, editId, getData }) => {
 };
 
 const AddCompany = ({ handleClose, getData }) => {
-  const { token } = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem("token"));
   const [service, setService] = useState([]);
   const [country, setCountry] = useState([]);
   const [values, setValues] = useState({

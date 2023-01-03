@@ -15,7 +15,7 @@ export const GET_AUTH_USER = "GET_AUTH_USER";
 export const AUTHORIZE_FAIL = "AUTHORIZE_FAIL";
 export const CLEAR_USERS = "CLEAR_USERS";
 export const REMOVE_FOOTER = "REMOVE_FOOTER";
-export const USERS_EMAIL = "USERS_EMAIL";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
 //
 
 // export const LOG_OUT = "LOG_OUT";
