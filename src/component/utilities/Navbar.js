@@ -107,6 +107,9 @@ const NavWrapper = styled.div`
     h3 {
       font-size: 1rem;
     }
+    .harmbuga {
+      font-size: 30px;
+    }
   }
   .nav_link {
     text-decoration: none;
