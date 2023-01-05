@@ -44,7 +44,7 @@ const Home = () => {
       <Sidebar />
       <MainWrapper>
         <div>
-          <Navbar callback={callback} />
+          <Navbar callback={callback} isToggled={isToggled} />
         </div>
         <BodyWrapper>
           <div className="py-4 d-flex align-items-center justify-content-between px-5">

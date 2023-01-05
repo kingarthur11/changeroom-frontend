@@ -10,7 +10,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ callback }) => {
+const Navbar = ({ callback, isToggled }) => {
   const { login, isAuth } = useSelector((state) => state.auth);
 
   const buttonStyle = {
@@ -24,7 +24,20 @@ const Navbar = ({ callback }) => {
     <NavWrapper>
       <div className="d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center justify-content-between">
-          <i onClick={callback} className="fa-solid fa-bars harmbuga"></i>
+          {isToggled ? (
+            <div className="harmbuga">
+              <span className="d-flex align-items-center justify-content-center">
+                <i onClick={callback} class="fas fa-times harmbuga"></i>
+              </span>
+            </div>
+          ) : (
+            <div className="harmbuga">
+              <span className="d-flex align-items-center justify-content-center">
+                <i onClick={callback} className="fa-solid fa-bars harmbuga"></i>
+              </span>
+            </div>
+          )}
+
           <div>
             <h3>Change</h3>
             <h3>Maker</h3>
@@ -92,10 +105,17 @@ const NavWrapper = styled.div`
   z-index: 10;
   top: 0;
   left: 0;
-  .harmbuga {
-    color: #ffffff;
+  .harmbuga span {
+    background: #ffffff;
+    color: #03045e;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .harmbuga i {
     font-size: 40px;
-    padding-right: 20px;
+  }
+  h3 {
+    padding-left: 20px;
   }
   @media (min-width: 1200px) {
     .harmbuga {

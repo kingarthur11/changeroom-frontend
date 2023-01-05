@@ -16,7 +16,7 @@ const Home = () => {
 
   const callback = () => {
     setShow(!show);
-    console.log(show);
+    // console.log(show);
   };
 
   const [formData, setFormData] = useState([]);
@@ -44,7 +44,7 @@ const Home = () => {
       <Sidebar show={show} />
       <MainWrapper>
         <div>
-          <Navbar callback={callback} />
+          <Navbar callback={callback} isToggled={show} />
         </div>
         <BodyWrapper>
           <div className="py-4 d-flex align-items-center justify-content-between px-5">
