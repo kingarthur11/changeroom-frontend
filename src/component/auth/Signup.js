@@ -24,12 +24,27 @@ const Signup = () => {
     phone_number: "",
     country_id: "",
   });
+
+  const refresh = () => {
+    setValues({
+      email: "",
+      password: "",
+      c_password: "",
+      name: "",
+      phone_number: "",
+      country_id: "",
+    });
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => dispatch(registerUser(data, navigate));
+  const onSubmit = (data) => {
+    dispatch(registerUser(data, navigate));
+    refresh();
+  };
 
   const getData = async () => {
     try {
@@ -116,7 +131,7 @@ const Signup = () => {
                         <option></option>
                         {formData &&
                           formData.map((item) => {
-                            console.log(item);
+                            // console.log(item);
                             return (
                               <option key={item.id} value={item.id}>
                                 {item.name.toUpperCase()}

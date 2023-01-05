@@ -16,12 +16,20 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const refresh = () => {
+    setValues({ email: "", password: "" });
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => dispatch(loginUser(data, navigate));
+  const onSubmit = (data) => {
+    dispatch(loginUser(data, navigate));
+    refresh();
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Avatar from "@mui/material/Avatar";
 import { deepOrange, deepPurple } from "@mui/material/colors";
+// import { createStyles, withStyles } from "@material-ui/core";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,7 +13,12 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = ({ callback }) => {
   const { login, isAuth } = useSelector((state) => state.auth);
 
-  console.log(login);
+  const buttonStyle = {
+    fontSize: "0.875rem",
+    "@media (max-width: 600px)": {
+      fontSize: "0.8rem",
+    },
+  };
 
   return (
     <NavWrapper>
@@ -50,22 +56,20 @@ const Navbar = ({ callback }) => {
                 <Link className="nav_link" to="/login">
                   <Button
                     style={{
-                      color: "#ffffff",
-                      background: "#03045e",
+                      color: " #ffffff",
                     }}
-                    size="medium"
-                    variant="contained">
+                    sx={buttonStyle}>
                     Login
                   </Button>
                 </Link>
 
                 <Link className="nav_link" to="/signup">
                   <Button
+                    sx={buttonStyle}
                     style={{
                       color: " #03045e",
                       background: "#ffffff",
                     }}
-                    size="medium"
                     variant="outlined">
                     Signup
                   </Button>
@@ -96,6 +100,12 @@ const NavWrapper = styled.div`
   @media (min-width: 1200px) {
     .harmbuga {
       display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    padding: 1.5rem 1rem;
+    h3 {
+      font-size: 1rem;
     }
   }
   .nav_link {
