@@ -109,7 +109,7 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div className="text-center pt-5">
+                <div className="text-center">
                   {isLoading ? (
                     <Button
                       type="submit"
