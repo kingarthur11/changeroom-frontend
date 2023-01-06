@@ -16,7 +16,6 @@ const Home = () => {
 
   const callback = () => {
     setShow(!show);
-    // console.log(show);
   };
 
   const [formData, setFormData] = useState([]);
@@ -68,7 +67,7 @@ const Home = () => {
                     {formData &&
                       formData.map((item) => {
                         return (
-                          <tr key={item.id}>
+                          <tr key={item?.id}>
                             <td>{dateFormatter(item?.created_at)}</td>
                             <td>{item?.company_name}</td>
                             <td>{item?.company_email}</td>

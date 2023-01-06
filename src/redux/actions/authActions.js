@@ -62,6 +62,7 @@ export const loginUser = (dataObj, navigate) => async (dispatch) => {
 
 export const logOut = (navigate) => async (dispatch) => {
   localStorage.removeItem("token");
+  localStorage.removeItem("user");
   dispatch({
     type: types.LOADING,
     payload: true,

@@ -13,6 +13,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = ({ callback, isToggled }) => {
   const { login, isAuth } = useSelector((state) => state.auth);
 
+  // console.log(isToggled);
+
   const buttonStyle = {
     fontSize: "0.875rem",
     "@media (max-width: 600px)": {
