@@ -69,7 +69,7 @@ const Login = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="my-3">
                   <div className="">
-                    <label>Email</label>
+                    {/* <label>Email</label> */}
                     <input
                       name="email"
                       {...register("email", { required: true })}
@@ -89,7 +89,7 @@ const Login = () => {
 
                 <div className="my-3">
                   <div className="">
-                    <label>Password</label>
+                    {/* <label>Password</label> */}
                     <input
                       name="password"
                       {...register("password", {
@@ -163,6 +163,10 @@ const RightWrapper = styled.div`
   width: 50%;
   background: #ffffff;
   padding: 50px 150px;
+  input,
+  select {
+    margin-top: 20px;
+  }
 
   @media (max-width: 996px) {
     width: 100%;

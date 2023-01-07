@@ -102,7 +102,7 @@ const Signup = () => {
                 <div className="row">
                   <div className="col-md-6 ">
                     <div className="">
-                      <label>Full Name</label>
+                      {/* <label>Full Name</label> */}
                       <input
                         name="name"
                         {...register("name", { required: true })}
@@ -123,12 +123,12 @@ const Signup = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="">
-                      <label>Country</label>
+                      {/* <label>Country</label> */}
                       <select
                         className="w-100 dollar-input"
                         name="country_id"
                         {...register("country_id")}>
-                        <option></option>
+                        <option>Country</option>
                         {formData &&
                           formData.map((item) => {
                             // console.log(item);
@@ -156,7 +156,7 @@ const Signup = () => {
                 <div className="row">
                   <div className="col-md-6 ">
                     <div className="">
-                      <label>Email</label>
+                      {/* <label>Email</label> */}
                       <input
                         name="email"
                         {...register("email", { required: true })}
@@ -181,7 +181,7 @@ const Signup = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="">
-                      <label>Phone Number</label>
+                      {/* <label>Phone Number</label> */}
                       <input
                         name="phone_number"
                         {...register("phone_number", { required: true })}
@@ -207,7 +207,7 @@ const Signup = () => {
                 </div>
                 <div className="my-2">
                   <div className="">
-                    <label>Password</label>
+                    {/* <label>Password</label> */}
 
                     <input
                       name="password"
@@ -233,7 +233,7 @@ const Signup = () => {
                 </div>
                 <div className="my-2">
                   <div className="">
-                    <label>Comfirm Password</label>
+                    {/* <label>Comfirm Password</label> */}
                     <input
                       name="c_password"
                       value={values.c_password}
@@ -298,6 +298,10 @@ const RightWrapper = styled.div`
   width: 50%;
   background: #ffffff;
   padding: 50px 150px;
+  input,
+  select {
+    margin-top: 20px;
+  }
 
   @media (max-width: 996px) {
     width: 100%;
@@ -305,6 +309,10 @@ const RightWrapper = styled.div`
   }
 
   @media (max-width: 600px) {
+    /* padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px; */
     padding: 50px 30px;
   }
   .nav_link {
