@@ -166,10 +166,11 @@ const RightWrapper = styled.div`
 
   @media (max-width: 996px) {
     width: 100%;
+    padding: 50px 100px;
   }
 
   @media (max-width: 600px) {
-    padding: 50px 50px;
+    padding: 50px 30px;
   }
   .nav_link {
     text-decoration: none;

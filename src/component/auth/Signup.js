@@ -297,14 +297,15 @@ const Wrapper = styled.div`
 const RightWrapper = styled.div`
   width: 50%;
   background: #ffffff;
-  padding: 50px 100px;
+  padding: 50px 150px;
 
   @media (max-width: 996px) {
     width: 100%;
+    padding: 50px 100px;
   }
 
   @media (max-width: 600px) {
-    padding: 50px 50px;
+    padding: 50px 30px;
   }
   .nav_link {
     text-decoration: none;
